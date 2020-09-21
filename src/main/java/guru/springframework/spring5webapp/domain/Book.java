@@ -10,16 +10,22 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Book {
 
 	private String tilte;
 	private String isbn;
+
+	@ManyToOne
+	private Publisher publisher;
+	
 	@ManyToMany
 	@JoinTable(name="author_book", joinColumns = @JoinColumn(name = "book_id"),
 	inverseJoinColumns = @JoinColumn(name="author_id"))
 	private Set<Author> authors  = new HashSet<>();
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,6 +41,20 @@ public class Book {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the publisher
+	 */
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+	/**
+	 * @param publisher the publisher to set
+	 */
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
 	}
 
 	public String getTilte() {
