@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Book {
 
-	private String tilte;
+	private String title;
 	private String isbn;
 
 	@ManyToOne
@@ -57,12 +57,12 @@ public class Book {
 		this.publisher = publisher;
 	}
 
-	public String getTilte() {
-		return tilte;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTilte(String tilte) {
-		this.tilte = tilte;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getIsbn() {
@@ -81,10 +81,10 @@ public class Book {
 		this.authors = authors;
 	}
 
-	public Book(String tilte, String isbn ){
-//	public Book(String tilte, String isbn, Set<Author> authors) {
+	public Book(String title, String isbn ){
+//	public Book(String title, String isbn, Set<Author> authors) {
 		super();
-		this.tilte = tilte;
+		this.title = title;
 		this.isbn = isbn;
 //		this.authors = authors;
 	}
@@ -93,7 +93,7 @@ public class Book {
 	
 	@Override
 	public String toString() {
-		return "Book [tilte=" + tilte + ", isbn=" + isbn + ", authors=" + authors + ", id=" + id + "]";
+		return "Book [title=" + title + ", isbn=" + isbn + ", id=" + id + "]";
 	}
 
 	@Override
